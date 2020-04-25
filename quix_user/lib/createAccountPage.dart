@@ -22,7 +22,7 @@ signUp(String name, String phoneNumber, String email, String password) async {
   };
   var jsonResponse = null;
   var response = await http
-      .post('http://35.246.130.180/api/v0/Auth/Customersignup', body: data);
+      .post('http://35.246.130.180/api/v0/auth/customer/signup', body: data);
 
   if (response.statusCode == 200) {
     jsonResponse = json.decode(response.body);
@@ -68,7 +68,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         size: 50.0,
                       ),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context,'/introPage');
+                        Navigator.pushReplacementNamed(context, '/introPage');
                       }),
                   Padding(
                     padding: const EdgeInsets.symmetric(
@@ -181,7 +181,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                           print(email.text);
                           signUp(username.text, phoneNumber.text, email.text,
                               password.text);
-                          //Navigator.pushNamed(context, '/homePage');
+                          Navigator.pushNamed(context, '/homePage');
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
